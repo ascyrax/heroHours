@@ -1,3 +1,8 @@
+import Input from "./Input";
 export default function Home(props) {
-	return <h1>home</h1>;
+	return (
+		<div className="home">
+			<Input />
+		</div>
+	);
 }
