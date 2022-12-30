@@ -1,0 +1,13 @@
+{
+	"name": "backend",
+	"version": "1.0.0",
+	"description": "",
+	"main": "server.js",
+	"scripts": {},
+	"author": "ascyrax",
+	"license": "ISC",
+	"dependencies": {
+		"ejs": "^3.1.8",
+		"express": "^4.18.2"
+	}
+}
