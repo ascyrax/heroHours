@@ -7,7 +7,10 @@
 	"author": "ascyrax",
 	"license": "ISC",
 	"dependencies": {
+		"cors": "^2.8.5",
+		"dotenv": "^16.0.3",
 		"ejs": "^3.1.8",
-		"express": "^4.18.2"
+		"express": "^4.18.2",
+		"mongodb": "^4.13.0"
 	}
 }
