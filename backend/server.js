@@ -12,20 +12,16 @@ app.use(cors());
 
 app.use(express.json()); // express.json() returns a middleware which takes the json form data and save it inside req.body
 // DATABASE (MONGODB)
+const mongoose = require("mongoose");
+mongoose.set("strictQuery", false);
 
-const { MongoClient, ServerApiVersion } = require("mongodb");
-const uri =
-	"mongodb+srv://m001-ascyrax:Tempo%231orary.returns@herohours.r2yt7ia.mongodb.net/?retryWrites=true&w=majority";
-const client = new MongoClient(uri, {
-	useNewUrlParser: true,
-	useUnifiedTopology: true,
-	serverApi: ServerApiVersion.v1,
-});
-client.connect((err) => {
-	const collection = client.db("test").collection("devices");
-	// perform actions on the collection object
-	client.close();
-});
+main().catch((err) => console.log(err));
+
+async function main() {
+	await mongoose.connect("mongodb://127.0.0.1:27017/heroHours", () =>
+		console.log("connected to db")
+	);
+}
 
 // ROUTING
 const hourRouter = require("./routers/hourRouter");
