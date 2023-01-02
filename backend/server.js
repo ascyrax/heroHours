@@ -11,16 +11,17 @@ app.listen(process.env.PORT, handleListen);
 app.use(cors());
 
 app.use(express.json()); // express.json() returns a middleware which takes the json form data and save it inside req.body
+
 // DATABASE (MONGODB)
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
 
 main().catch((err) => console.log(err));
-
 async function main() {
-	await mongoose.connect("mongodb://127.0.0.1:27017/heroHours", () =>
+	await mongoose.connect(process.env.CLOUD_DB, () =>
 		console.log("connected to db")
-	);
+	),
+		(e) => console.log(e);
 }
 
 // ROUTING

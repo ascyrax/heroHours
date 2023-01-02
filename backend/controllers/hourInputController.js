@@ -1,10 +1,9 @@
-const { update } = require("../schema/userSchema");
 const userModel = require("../schema/userSchema");
 
 function hourInputController(req, res) {
 	handleUserInput(req.body);
 
-	res.json({ mssg: "wow, post working still" });
+	res.json({ mssg: "user input posted" });
 }
 async function handleUserInput({ username, hours }) {
 	const similarUser = await userModel.find({ username });

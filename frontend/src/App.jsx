@@ -9,7 +9,7 @@ export default function App(props) {
 			<Link to="/leaderboards">LeaderBoards</Link>
 			<Routes>
 				<Route path="/" element={<Home />}></Route>
-				<Route path="/about" element={<LeaderBoards />}></Route>
+				<Route path="/leaderboards" element={<LeaderBoards />}></Route>
 			</Routes>
 		</div>
 	);
