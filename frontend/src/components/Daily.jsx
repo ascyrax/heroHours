@@ -1,5 +1,5 @@
 export default function Daily({ users }) {
-	// console.log(users);
+	console.log(users);
 	let usersCopy = JSON.parse(JSON.stringify(users));
 	usersCopy.map((el) => {
 		let hours = el.hours;
@@ -7,10 +7,10 @@ export default function Daily({ users }) {
 		el.hours = hour;
 		return el;
 	});
-	console.log(usersCopy);
+	console.log("a ", usersCopy);
 	// [DOUBT] = > THIS LINE SHOULD PRINT AN UNSORTED usersCopy. but it doesnt. why?
 	usersCopy.sort((a, b) => b.hours - a.hours);
-	console.log(usersCopy);
+	console.log("b ", usersCopy);
 
 	return (
 		<div className="daily">
