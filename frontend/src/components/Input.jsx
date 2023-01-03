@@ -6,9 +6,7 @@ export default function Input(props) {
 
 	function handleChange(e) {
 		let target = e.target;
-		console.log(target);
 		let [name, val] = [target.name, target.value];
-		console.log(name, val);
 
 		setFormState((prevFormState) => ({
 			...prevFormState,

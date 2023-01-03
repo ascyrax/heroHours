@@ -5,9 +5,18 @@ import { useState } from "react";
 import { useEffect } from "react";
 
 export default function LeaderBoards(props) {
-	const [users, setUsers] = useState([]);
+	const [inputFetched, setInputFetched] = useState(false);
+	const [state, setState] = useState([]);
 
-	useEffect;
+	useEffect(() => {
+		async function temp() {
+			let users = await getData();
+			let tempDeepCopy = JSON.parse(JSON.stringify(users));
+			setState(tempDeepCopy);
+			setInputFetched(true);
+		}
+		temp();
+	}, []);
 	async function getData() {
 		const data = await fetch("http://localhost:7000/api/hour/users");
 		let json;
@@ -18,18 +27,21 @@ export default function LeaderBoards(props) {
 		}
 
 		let users = json.users;
-
 		users = users.map((el) => {
 			return { username: el.username, hours: el.hours };
 		});
-		console.log(users);
+		return users;
 	}
 
 	return (
 		<div className="leaderBoards">
-			<Daily users={users} />
-			<Weekly users={users} />
-			<Monthly users={users} />
+			{inputFetched && (
+				<>
+					<Daily users={state} />
+					<Weekly users={state} />
+					<Monthly users={state} />
+				</>
+			)}
 		</div>
 	);
 }
