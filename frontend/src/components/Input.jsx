@@ -16,7 +16,7 @@ export default function Input(props) {
 
 	function handleSubmit(e) {
 		e.preventDefault();
-		fetch("http://localhost:7000/api/hour/userInput", {
+		fetch("https://hero-hours.vercel.app/api/hour/userInput", {
 			method: "POST",
 			body: JSON.stringify(formState),
 			headers: {
@@ -63,7 +63,6 @@ export default function Input(props) {
 				<p />
 				<button type="submit">Submit</button>
 			</form>
-			<button onClick={handleClick}>click me</button>
 		</div>
 	);
 }

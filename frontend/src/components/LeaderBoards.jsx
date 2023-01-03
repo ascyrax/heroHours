@@ -18,7 +18,7 @@ export default function LeaderBoards(props) {
 		temp();
 	}, []);
 	async function getData() {
-		const data = await fetch("http://localhost:7000/api/hour/users");
+		const data = await fetch("https://hero-hours.vercel.app/api/hour/users");
 		let json;
 		try {
 			json = await data.json();
