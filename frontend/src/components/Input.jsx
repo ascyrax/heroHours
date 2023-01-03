@@ -30,6 +30,16 @@ export default function Input(props) {
 			});
 	}
 
+	async function handleClick() {
+		try {
+			let data = await fetch("http://localhost:7000/");
+			data = await data.json();
+			console.log(data);
+		} catch (e) {
+			console.log(e);
+		}
+	}
+
 	return (
 		<div className="input">
 			<form onSubmit={handleSubmit}>
@@ -53,6 +63,7 @@ export default function Input(props) {
 				<p />
 				<button type="submit">Submit</button>
 			</form>
+			<button onClick={handleClick}>click me</button>
 		</div>
 	);
 }

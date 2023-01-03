@@ -26,8 +26,10 @@ async function main() {
 
 // ROUTING
 const hourRouter = require("./routers/hourRouter");
+const homeRouter = require("./routers/homeRouter");
 
 app.use("/api/hour/", hourRouter);
+app.use("/", homeRouter);
 
 function handleListen(err) {
 	if (err) console.log("err in server setup: " + err);
