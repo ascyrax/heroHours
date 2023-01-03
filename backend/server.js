@@ -6,7 +6,7 @@ const cors = require("cors");
 const express = require("express");
 const app = express();
 
-app.listen(process.env.PORT, handleListen);
+app.listen(process.env.PORT || 7000, handleListen);
 
 app.use(cors());
 
